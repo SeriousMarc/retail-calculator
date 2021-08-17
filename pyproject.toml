@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "retail-calculator"
+version = "1.0.0"
+description = "Calculator For Retail Products"
+authors = ["Mark Morozov"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.10.0"
+
+asyncpg = "^0.23.0"
+fastapi = "^0.68.0"
+pydantic = "^1.8.2"
+SQLAlchemy = "^1.4.22"
+uvicorn = "^0.14.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+pytest-asyncio = "^0.15.1"
+httpx = "^0.18.2"
+flakehell = "^0.9.0"
+flake8 = "^3.9.2"
+flake8-commas = "^2.0.0"
+flake8-quotes = "^3.2.0"
+pylint = "^2.9.6"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "pep440"
+
+[tool.black]
+line-length = 99
+
+[tool.flakehell]
+base = "https://raw.githubusercontent.com/life4/flakehell/master/pyproject.toml"
+max-line-length = 99
+format = "default"
+exclude = []
+extended_default_ignore=[".git", "build", "dist", ".venv"]
+show_source = true
+
+[tool.flakehell.plugins]
+pycodestyle = ["+*"]
+pyflakes = ["+*"]
+flake8-commas = ["+*"]
+flake8-quotes = ["+*"]
+pylint = ["+*", "+F*", "+E*", "-E0611", "-E1101", "-E0401", "-E1102", "-E1123"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry.core.masonry.api"

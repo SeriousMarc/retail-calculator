@@ -1,0 +1,34 @@
+@startuml
+
+entity "Order"{
+  *id : <<PK>>
+  --
+  *product_amount: number
+  ..
+  *price_per_product: decimal
+  ..
+  *state: string
+  ..
+  *discount: decimal
+  ..
+  *tax: decimal
+}
+
+entity "Discount"{
+  *id : <<PK>>
+  --
+  *price: decimal
+  ..
+  *rate: decimal
+}
+
+entity "Tax"{
+  *id : <<PK>>
+  --
+  *state: string
+  ..
+  *rate: decimal
+}
+
+
+@enduml
